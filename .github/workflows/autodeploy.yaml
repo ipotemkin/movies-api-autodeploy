@@ -24,8 +24,10 @@ jobs:
         uses: actions/checkout@v2
       - name: render configs
         run: |
+          ls -la
           mkdir deploy
-          cat docker-compose-server.yaml | env_subst > deploy/docker-compose.yaml
+          ls -la
+          cat docker-compose-server.yaml | envsubst > deploy/docker-compose.yaml
 #          cat prod_config.py | env_subst > deploy/docker_config.py
       - name: debug 3
         run: ls -la
