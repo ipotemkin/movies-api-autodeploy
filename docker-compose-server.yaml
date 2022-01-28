@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   api:
-    image: ipotemkin/movies_skypro_app
+    image: ipotemkin/movies_skypro_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     volumes:
       - ./data:/code/data  # to get to the database
     environment:
