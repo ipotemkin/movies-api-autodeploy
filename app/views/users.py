@@ -35,7 +35,7 @@ async def users_current_user(
 @router.get("/all/", include_in_schema=False)
 async def users_get_all(db: Session = Depends(get_db)):
     """
-    Получить всех пользователей
+    Получить всех пользователей deploy test
     """
     return UserService(session=db).get_all()
 
