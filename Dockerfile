@@ -9,6 +9,7 @@ RUN apt remove -y git
 WORKDIR /code
 COPY ./app ./app
 COPY run.py .
+
 #COPY movies.db .
 #COPY README.md .
 #ENV NO_RATE_LIMIT="TRUE"

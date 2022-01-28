@@ -6,15 +6,24 @@ services:
       - ./data:/code/data  # to get to the database
     environment:
 #      NO_RATE_LIMIT: "TRUE"  # switches off the rate limiting
+
+      # to correctly connect to the redis
       REDIS_HOST: "redis"
+
+# to set env variables from .env
 #    env_file:
 #      - .env
+
     ports:
       - "8001:80"
+    restart: always
     depends_on:
       - redis
+# по синтакису ниже жду ответ от Насти
 #      redis:
 #        condition: service_healthy
+
     command: uvicorn --host 0.0.0.0 --port 80 run:app --workers 4
   redis:
     image: redis:latest
+    restart: always
