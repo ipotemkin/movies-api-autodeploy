@@ -11,5 +11,5 @@ jobs:
       - name: debug 2
         run: ls -la
       - name: docker build
-        run: docker build -t ipotemkin/movies_skypro_app
+        run: docker build -t ipotemkin/movies_skypro_app .
 
