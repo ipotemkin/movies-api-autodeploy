@@ -16,5 +16,5 @@ alembic
 .env
 docker-compose.yaml
 #Dockerfile
-docker-compose-server.yaml
+#docker-compose-server.yaml
 requirements-dev.txt

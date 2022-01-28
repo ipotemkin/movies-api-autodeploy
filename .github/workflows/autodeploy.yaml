@@ -12,5 +12,29 @@ jobs:
         run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ipotemkin --password-stdin
       - name: docker push
         run: docker push ipotemkin/movies_skypro_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID
-
-
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_and_push
+    env:
+      PWD_HASH_SALT: ${{ secrets.PWD_HASH_SALT }}
+      JWT_KEY: ${{ secrets.JWT_KEY }}
+      REDIS_HOST: redis
+    steps:
+      - name: clone code
+        uses: actions/checkout@v2
+      - name: render configs
+        run: |
+          mkdir deploy
+          cat docker-compose-server.yaml | env_subst > deploy/docker-compose.yaml
+#          cat prod_config.py | env_subst > deploy/docker_config.py
+      - name: debug 3
+        run: ls -la
+      - name: clone config
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "deploy/docker-compose.yaml"
+          target: movies-api
+          strip_components: 1
