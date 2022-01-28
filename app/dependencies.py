@@ -1,13 +1,14 @@
-from app.setup_db import SessionLocal
-from fastapi.security import OAuth2PasswordBearer
 import jwt
-from app.constants import JWT_KEY, JWT_METHOD
+from typing import Optional
+from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, status, Depends, Query
-from app.service.rtokens import RTokenService
 from sqlalchemy.orm import Session
+
+from app.setup_db import SessionLocal
+from app.constants import JWT_KEY, JWT_METHOD
+from app.service.rtokens import RTokenService
 from app.service.users import UserService
 from app.dao.model.rtokens import TokenModel
-from typing import Optional
 
 
 # Dependency

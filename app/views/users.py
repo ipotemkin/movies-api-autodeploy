@@ -1,10 +1,11 @@
 from fastapi import APIRouter, status, Response, Depends
+from pydantic import BaseModel
+from sqlalchemy.orm import Session
+
 from app.dao.model.users import UserBM, UserUpdateBM
+from app.dao.model.rtokens import TokenModel
 from app.service.users import UserService
 from app.dependencies import get_db, valid_token
-from sqlalchemy.orm import Session
-from pydantic import BaseModel, validator
-from app.dao.model.rtokens import TokenModel
 
 router = APIRouter(prefix="/user", tags=["users"])
 
@@ -62,7 +63,6 @@ async def users_get_all(db: Session = Depends(get_db)):
 #     return UserBM.from_orm(new_obj).dict(exclude={'password'})
 
 
-# @validator('user', pre=False, always=True)
 @router.patch(
     "",
     # status_code=status.HTTP_204_NO_CONTENT,

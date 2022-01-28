@@ -2,9 +2,10 @@ aioredis==2.0.1
 alembic==1.7.5
 anyio==3.4.0
 asgiref==3.4.1
+astroid==2.9.3
 async-timeout==4.0.2
 attrs==21.2.0
-black==21.12b0
+#black==21.12b0
 certifi==2021.10.8
 charset-normalizer==2.0.9
 click==8.0.3
@@ -19,10 +20,13 @@ greenlet==1.1.2
 h11==0.12.0
 idna==3.3
 iniconfig==1.1.1
+isort==5.10.1
+lazy-object-proxy==1.7.1
 Mako==1.1.6
 MarkupSafe==2.0.1
-mypy==0.910
-mypy-extensions==0.4.3
+mccabe==0.6.1
+#mypy==0.910
+#mypy-extensions==0.4.3
 packaging==21.3
 pathspec==0.9.0
 platformdirs==2.4.0
@@ -30,9 +34,10 @@ pluggy==1.0.0
 py==1.11.0
 pydantic==1.8.2
 PyJWT==2.3.0
+#pylint==2.12.2
 pyparsing==3.0.6
-pytest==6.2.5
-pytest-cov==3.0.0
+#pytest==6.2.5
+#pytest-cov==3.0.0
 python-dotenv==0.19.2
 python-multipart==0.0.5
 requests==2.26.0
@@ -48,3 +53,5 @@ typing_extensions==4.0.1
 ujson==4.3.0
 urllib3==1.26.7
 uvicorn==0.15.0
+wrapt==1.13.3
+#git==2.33.0

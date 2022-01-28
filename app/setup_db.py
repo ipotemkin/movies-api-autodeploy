@@ -28,7 +28,7 @@ if TESTING:
 
 else:
     engine = create_engine(
-        f"sqlite:///{BASE_DIR.parent}/movies.db",
+        f"sqlite:///{BASE_DIR.parent}/data/movies.db",
         connect_args={"check_same_thread": False},
         echo=False,
     )
