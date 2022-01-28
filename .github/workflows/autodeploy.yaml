@@ -24,7 +24,6 @@ jobs:
         uses: actions/checkout@v2
       - name: render configs
         run: |
-#          TODO зачем mkdir deploy?
           mkdir deploy
           cat docker-compose-server.yaml | envsubst > deploy/docker-compose.yaml
 #          cat prod_config.py | env_subst > deploy/docker_config.py
