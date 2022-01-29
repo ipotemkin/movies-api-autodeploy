@@ -25,8 +25,9 @@ jobs:
       run: |
         coverage run --source=app -m pytest -v tests
         coverage report --show-missing
-    - name: upload coverage to codecov
-      uses: codecov/codecov-action@v1
+
+#    - name: upload coverage to codecov
+#      uses: codecov/codecov-action@v1
 
     - name: docker build
       run: docker build -t ipotemkin/movies_skypro_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
