@@ -17,7 +17,7 @@ jobs:
         ls -la
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
+        pip install flake8
     - name: linting
       run: |
         flake8 app --max-line-length=120
