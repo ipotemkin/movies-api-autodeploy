@@ -6,6 +6,11 @@ jobs:
     steps:
       - name: clone code
         uses: actions/checkout@v2
+      - name: run tests
+        run: |
+          cd tests
+          pytest --cov=app
+          cd ..
       - name: docker build
         run: docker build -t ipotemkin/movies_skypro_app:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
       - name: docker login
@@ -47,4 +52,5 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd movies-api
+            docker-compose down
             echo ${{ secrets.SSH_PASSWORD }} | sudo -S docker-compose up -d
