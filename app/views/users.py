@@ -1,8 +1,8 @@
-from fastapi import APIRouter, status, Response, Depends
+from fastapi import APIRouter, status, Response, Depends  # noqa
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
-from app.dao.model.users import UserBM, UserUpdateBM
+from app.dao.model.users import UserBM, UserUpdateBM  # noqa
 from app.dao.model.rtokens import TokenModel
 from app.service.users import UserService
 from app.dependencies import get_db, valid_token
